@@ -7,8 +7,10 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         CreditCardPayment creditCardPayment = new CreditCardPayment();
+        PayPalPayment payPalPayment = new PayPalPayment();
         Map<PaymentType, PaymentMethod> paymentMethods = new HashMap<PaymentType, PaymentMethod>();
         paymentMethods.put(PaymentType.CREDIT_CARD, creditCardPayment);
+        paymentMethods.put(PaymentType.PayPal, payPalPayment);
         PaymentService paymentService = new PaymentService(paymentMethods);
 
         Scanner scanner = new Scanner(System.in);
@@ -25,7 +27,7 @@ public class Main {
 
         PaymentRequest request = new PaymentRequest(amount, selectedType);
 
-        paymentService.pay(new PaymentRequest( 100, PaymentType.CREDIT_CARD));
+        paymentService.pay(request);
 
     }
 }
