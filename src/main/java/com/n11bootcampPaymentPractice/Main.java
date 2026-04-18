@@ -8,9 +8,11 @@ public class Main {
     public static void main(String[] args) {
         CreditCardPayment creditCardPayment = new CreditCardPayment();
         PayPalPayment payPalPayment = new PayPalPayment();
+        ApplePayment applePayment = new ApplePayment();
         Map<PaymentType, PaymentMethod> paymentMethods = new HashMap<PaymentType, PaymentMethod>();
         paymentMethods.put(PaymentType.CREDIT_CARD, creditCardPayment);
-        paymentMethods.put(PaymentType.PayPal, payPalPayment);
+        paymentMethods.put(PaymentType.PAYPAL, payPalPayment);
+        paymentMethods.put(PaymentType.APPLE_PAY, applePayment);
         PaymentService paymentService = new PaymentService(paymentMethods);
 
         Scanner scanner = new Scanner(System.in);

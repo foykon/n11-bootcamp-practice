@@ -2,7 +2,8 @@ package com.n11bootcampPaymentPractice;
 
 public enum PaymentType {
     CREDIT_CARD(1),
-    PayPal(2);
+    PAYPAL(2),
+    APPLE_PAY(3); ;
 
     private final int code;
     PaymentType(int code) {
